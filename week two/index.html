@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lagoon Wings – A seasonal guide to watching waterbirds</title>
+  <meta name="description" content="A responsive guide to waterbird watching: species, best months, gallery and visit planning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Lagoon Wings</a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#species">Species</a></li>
+          <li><a href="#season">Season</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Plan a visit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <picture>
+        <source media="(min-width: 48em)" srcset="images/hero-wide.svg" width="1600" height="640">
+        <img src="images/hero-tall.svg" width="800" height="960" alt="Pink flamingos wading in a calm lagoon at sunrise, with small birds flying overhead">
+      </picture>
+      <div class="hero-text wrap">
+        <h1 id="hero-title">Watch the lagoon wake up</h1>
+        <p>A seasonal guide to the waterbirds that visit shallow coastal lagoons: who to look for, when to go and how to plan the day.</p>
+        <p><a class="btn" href="#visit">Plan your visit</a></p>
+      </div>
+    </section>
+
+    <section class="section wrap" id="species" aria-labelledby="species-title">
+      <h2 id="species-title">Three birds to look for</h2>
+      <div class="species-grid">
+        <article class="species">
+          <img src="images/flamingo.svg" width="800" height="600" loading="lazy" alt="Illustration of a pink flamingo standing in shallow water">
+          <div class="species-body">
+            <h3>Greater flamingo</h3>
+            <p>Tall, pink and usually in flocks. Look for them feeding with their heads down in the shallows.</p>
+          </div>
+        </article>
+        <article class="species">
+          <img src="images/pelican.svg" width="800" height="600" loading="lazy" alt="Illustration of a pale pelican on the water">
+          <div class="species-body">
+            <h3>Spot-billed pelican</h3>
+            <p>A large, pale fishing bird. It often feeds in groups, herding fish toward the shore.</p>
+          </div>
+        </article>
+        <article class="species">
+          <img src="images/stork.svg" width="800" height="600" loading="lazy" alt="Illustration of a white stork standing in marsh grass">
+          <div class="species-body">
+            <h3>Painted stork</h3>
+            <p>Easy to spot by its long, curved bill. It wades slowly and sweeps the bill through the water.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tint" id="season" aria-labelledby="season-title">
+      <div class="wrap">
+        <h2 id="season-title">When to go</h2>
+        <table class="season-table">
+          <caption class="visually-hidden">Bird activity by month and the best time of day</caption>
+          <thead>
+            <tr><th scope="col">Months</th><th scope="col">What to expect</th><th scope="col">Best hour</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" data-label="Months">October–November</th><td data-label="What to expect">First arrivals, smaller groups</td><td data-label="Best hour">6:00–8:00 am</td></tr>
+            <tr><th scope="row" data-label="Months">December–February</th><td data-label="What to expect">Peak numbers, large flocks</td><td data-label="Best hour">6:00–9:00 am</td></tr>
+            <tr><th scope="row" data-label="Months">March–April</th><td data-label="What to expect">Flocks thin out as birds leave</td><td data-label="Best hour">Early morning</td></tr>
+            <tr><th scope="row" data-label="Months">May–September</th><td data-label="What to expect">Few visitors, resident birds only</td><td data-label="Best hour">Early morning</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section wrap" id="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Gallery</h2>
+      <div class="gallery">
+        <figure class="wide"><img src="images/dusk.svg" width="800" height="500" loading="lazy" alt="Birds flying over a lagoon at dusk"><figcaption>Dusk over the water</figcaption></figure>
+        <figure><img src="images/dawn.svg" width="800" height="800" loading="lazy" alt="A flamingo at sunrise"><figcaption>First light</figcaption></figure>
+        <figure><img src="images/flamingo.svg" width="800" height="600" loading="lazy" alt="Flamingo in shallow water"><figcaption>Feeding in the shallows</figcaption></figure>
+        <figure><img src="images/stork.svg" width="800" height="600" loading="lazy" alt="Stork in marsh grass"><figcaption>Waiting and watching</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section tint" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit-grid">
+        <article>
+          <h2 id="visit-title">Plan your visit</h2>
+          <p>Arrive before sunrise, move slowly and keep your distance. Birds that feel safe stay longer and behave naturally.</p>
+          <p>Choose a calm morning, check tide and weather the day before, and tell someone where you are going.</p>
+        </article>
+        <aside class="checklist" aria-labelledby="kit-title">
+          <h3 id="kit-title">What to bring</h3>
+          <ul>
+            <li>Binoculars</li>
+            <li>Water and a hat</li>
+            <li>Muted clothing</li>
+            <li>A notebook for sightings</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Lagoon Wings is a sample page built for a responsive design exercise. Illustrations are placeholders.</p>
+      <p class="small">© 2026 Lagoon Wings</p>
+    </div>
+  </footer>
+</body>
+</html>

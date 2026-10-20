@@ -1,0 +1,201 @@
+/* ==========================================================
+   Lagoon Wings – responsive stylesheet
+   1 Tokens · 2 Reset · 3 Base · 4 Layout · 5 Header · 6 Hero
+   7 Species (container queries) · 8 Season table · 9 Gallery
+   10 Visit · 11 Footer · 12 Utilities · 13 Media queries
+   Approach: mobile-first. Base rules = phones; queries add
+   complexity as the viewport (or container) grows.
+   ========================================================== */
+
+/* 1. Tokens */
+:root {
+  --deep: #0b2e33;
+  --lagoon: #0f5c63;
+  --mist: #eef3f2;
+  --flamingo: #e8618c;
+  --flamingo-dark: #b4305c;
+  --ink: #1d2b2e;
+  --muted: #475c60;
+  --line: #c6d5d3;
+  --white: #fff;
+
+  --font-head: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+
+  /* Fluid type: min, preferred (viewport-based), max */
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  --fs-h2: clamp(1.6rem, 1.2rem + 2vw, 2.4rem);
+  --fs-h1: clamp(2.2rem, 1.3rem + 4.5vw, 4rem);
+
+  /* Fluid spacing */
+  --gap: clamp(1rem, 0.6rem + 2vw, 2rem);
+  --section: clamp(2.5rem, 1.5rem + 5vw, 5.5rem);
+  --max: 72rem;
+  --radius: 12px;
+}
+
+/* 2. Reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+ul { padding: 0; list-style: none; }
+table { border-collapse: collapse; }
+
+/* 3. Base */
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.65; color: var(--ink); background: var(--white); }
+h1, h2, h3 { font-family: var(--font-head); font-weight: 400; line-height: 1.15; color: var(--deep); text-wrap: balance; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); margin-block-end: var(--gap); }
+h3 { font-size: var(--fs-h3); margin-block-end: 0.4rem; }
+p { max-inline-size: 62ch; }
+p + p { margin-block-start: 1em; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--flamingo-dark); outline-offset: 3px; }
+
+/* 4. Layout helpers */
+.wrap { inline-size: min(100% - 2rem, var(--max)); margin-inline: auto; }
+.section { padding-block: var(--section); }
+.tint { background: var(--mist); }
+
+.btn {
+  display: inline-block; padding: 0.8rem 1.5rem; border-radius: 999px;
+  background: var(--flamingo-dark); color: var(--white); font-weight: 600; text-decoration: none;
+}
+
+/* 5. Header */
+.skip-link { position: absolute; inset-inline-start: -999px; background: var(--white); padding: 0.5rem 1rem; z-index: 30; }
+.skip-link:focus { inset-inline-start: 0.5rem; inset-block-start: 0.5rem; }
+.site-header { background: var(--deep); color: var(--white); }
+.header-inner { display: flex; flex-direction: column; gap: 0.25rem; padding-block: 0.75rem; }
+.brand { font-family: var(--font-head); font-size: 1.4rem; text-decoration: none; }
+.nav-list { display: flex; gap: 1.25rem; overflow-x: auto; padding-block: 0.25rem; white-space: nowrap; }
+.nav-list a { display: inline-block; padding-block: 0.4rem; text-decoration: none; }
+
+/* 6. Hero */
+.hero { display: grid; }
+.hero picture, .hero img { grid-area: 1 / 1; inline-size: 100%; }
+.hero img { block-size: min(70svh, 34rem); object-fit: cover; }
+.hero-text { grid-area: 2 / 1; padding-block: var(--gap); }
+.hero-text p:not(:last-child) { color: var(--muted); font-size: 1.1em; margin-block: 1rem 1.25rem; }
+
+/* 7. Species – laid out by the width of the grid's container,
+      not by the viewport (container queries) */
+.species-grid { container-type: inline-size; display: grid; gap: var(--gap); }
+.species { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+.species img { inline-size: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.species-body { padding: 1.1rem 1.25rem 1.4rem; }
+
+@container (min-width: 34rem) {
+  .species { display: grid; grid-template-columns: minmax(10rem, 40%) 1fr; align-items: stretch; }
+  .species img { block-size: 100%; aspect-ratio: auto; }
+}
+@container (min-width: 58rem) {
+  .species-grid { grid-template-columns: repeat(3, 1fr); }
+  .species { display: block; }
+  .species img { block-size: auto; aspect-ratio: 4 / 3; }
+}
+
+/* 8. Season table – stacked "cards" on small screens */
+.season-table { inline-size: 100%; background: var(--white); border-radius: var(--radius); overflow: hidden; }
+.season-table thead { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.season-table tr { display: block; padding: 0.9rem 1rem; border-block-end: 1px solid var(--line); }
+.season-table tr:last-child { border-block-end: 0; }
+.season-table th, .season-table td { display: block; padding: 0.15rem 0; text-align: start; font-weight: 400; }
+.season-table tbody th { font-weight: 600; color: var(--deep); }
+.season-table td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
+
+/* 9. Gallery – auto-fit grid, no breakpoints needed for columns */
+.gallery { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.gallery figure { overflow: hidden; border-radius: var(--radius); background: var(--mist); }
+.gallery img { inline-size: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery figcaption { padding: 0.6rem 0.9rem; font-size: 0.95em; color: var(--muted); }
+.gallery .wide { grid-column: 1 / -1; }
+.gallery .wide img { aspect-ratio: 16 / 9; }
+
+/* 10. Visit */
+.visit-grid { display: grid; gap: var(--gap); }
+.checklist { background: var(--white); border: 2px solid var(--lagoon); border-radius: var(--radius); padding: 1.25rem 1.5rem; align-self: start; }
+.checklist li { padding-block: 0.4rem; border-block-end: 1px solid var(--line); }
+.checklist li:last-child { border-block-end: 0; }
+
+/* 11. Footer */
+.site-footer { background: var(--deep); color: #cfe0e0; padding-block: 2rem; }
+.site-footer .small { font-size: 0.9rem; margin-block-start: 0.5rem; }
+
+/* 12. Utilities */
+.visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 13. Media queries (mobile-first) */
+
+/* Tablets and up: 768px */
+@media (min-width: 48em) {
+  .header-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+  .site-header { position: sticky; inset-block-start: 0; z-index: 20; }
+  html { scroll-padding-top: 4.5rem; }
+  .nav-list { overflow: visible; }
+  .hero img { block-size: min(60svh, 30rem); }
+
+  /* Table returns to a true table */
+  .season-table thead { position: static; inline-size: auto; block-size: auto; overflow: visible; clip: auto; }
+  .season-table thead th { background: var(--lagoon); color: var(--white); text-align: start; padding: 0.9rem 1rem; }
+  .season-table tr { display: table-row; padding: 0; }
+  .season-table th, .season-table td { display: table-cell; padding: 0.9rem 1rem; border-block-end: 1px solid var(--line); }
+  .season-table tbody tr:last-child > * { border-block-end: 0; }
+  .season-table td::before { content: none; }
+
+  .visit-grid { grid-template-columns: 1.6fr 1fr; }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktops: 1024px – text panel overlays the hero image */
+@media (min-width: 64em) {
+  .hero-text { grid-area: 1 / 1; align-self: end; justify-self: start; margin-inline-start: max(1rem, calc((100% - var(--max)) / 2)); margin-block-end: 2rem; padding: 2rem; max-inline-size: 34rem; background: rgba(255, 255, 255, 0.94); border-radius: var(--radius); }
+  .hero img { block-size: min(65svh, 36rem); }
+  .hero-text.wrap { inline-size: auto; }
+}
+
+/* Large screens: stop the layout stretching forever */
+@media (min-width: 90em) {
+  :root { --max: 80rem; }
+}
+
+/* Small phones */
+@media (max-width: 22.5em) {
+  .btn { display: block; text-align: center; }
+  .nav-list { gap: 0.9rem; }
+}
+
+/* Phones held sideways: little vertical room */
+@media (orientation: landscape) and (max-height: 30em) {
+  .hero img { block-size: 60svh; }
+  .site-header { position: static; }
+}
+
+/* Touch screens: larger tap targets */
+@media (pointer: coarse) {
+  .nav-list a, .btn { min-block-size: 44px; display: inline-flex; align-items: center; }
+}
+
+/* Mouse users: hover feedback */
+@media (hover: hover) {
+  .nav-list a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .btn:hover { background: var(--deep); }
+  .species, .gallery figure { transition: box-shadow 0.2s; }
+  .species:hover, .gallery figure:hover { box-shadow: 0 6px 18px rgba(11, 46, 51, 0.18); }
+}
+
+/* Accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* Print */
+@media print {
+  .site-header, .skip-link, .btn { display: none; }
+  body { color: #000; }
+  .hero img, .gallery img { max-block-size: 8cm; }
+  .tint { background: none; }
+}
