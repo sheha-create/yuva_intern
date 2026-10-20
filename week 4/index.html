@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TaskFlow is a simple, accessible task manager for organizing daily work.">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>TaskFlow | Accessible Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="TaskFlow home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>TaskFlow</span>
+      </a>
+      <p class="header-note">A calmer way to get things done</p>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">◐</span> <span id="theme-label">Dark mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR DAY, IN FOCUS</p>
+      <h1 id="page-title">Make room for <span>what matters.</span></h1>
+      <p class="intro-copy">Capture your next steps, choose a priority, and move forward one task at a time.</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Task summary">
+      <article class="stat-card">
+        <p class="stat-label">Total tasks</p>
+        <p class="stat-value" id="total-count">0</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">Completed</p>
+        <p class="stat-value" id="completed-count">0</p>
+      </article>
+      <article class="stat-card">
+        <p class="stat-label">Still to do</p>
+        <p class="stat-value" id="remaining-count">0</p>
+      </article>
+    </section>
+
+    <section class="workspace" aria-labelledby="tasks-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR WORKSPACE</p>
+          <h2 id="tasks-heading">Today’s tasks</h2>
+        </div>
+        <span class="progress-copy" id="progress-copy">0% complete</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Tasks completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+        <span id="progress-fill" class="progress-fill"></span>
+      </div>
+
+      <form id="task-form" class="task-form" novalidate>
+        <div class="field-group">
+          <label for="task-input">New task</label>
+          <input id="task-input" name="task" type="text" maxlength="120" autocomplete="off"
+                 placeholder="e.g. Review lecture notes" aria-describedby="task-help task-error" required>
+          <p id="task-help" class="field-help">Keep it clear and actionable, up to 120 characters.</p>
+          <p id="task-error" class="field-error" role="alert" hidden></p>
+        </div>
+        <div class="field-group priority-field">
+          <label for="task-priority">Priority</label>
+          <select id="task-priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <button class="primary-button" type="submit">Add task <span aria-hidden="true">+</span></button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filter-group" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-button" data-filter="active" aria-pressed="false">Active</button>
+          <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+        <label class="search-label" for="task-search">
+          <span class="visually-hidden">Search tasks</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="task-search" type="search" placeholder="Search tasks" autocomplete="off">
+        </label>
+      </div>
+
+      <p class="result-summary" id="result-summary" aria-live="polite" aria-atomic="true">No tasks yet. Add one to get started.</p>
+      <ul id="task-list" class="task-list" aria-label="Task list"></ul>
+      <div id="empty-state" class="empty-state">
+        <span class="empty-icon" aria-hidden="true">✦</span>
+        <h3>Your list is a blank page</h3>
+        <p>Add a task above and make your first little win.</p>
+      </div>
+      <div class="list-footer">
+        <span id="remaining-label">0 tasks remaining</span>
+        <button id="clear-completed" class="text-button" type="button" disabled>Clear completed</button>
+      </div>
+    </section>
+
+    <p class="privacy-note"><span aria-hidden="true">●</span> Your tasks stay in this page session and are not sent to a server.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Designed for focus. Built with semantic HTML, accessible controls, and lightweight code.</p>
+  </footer>
+
+  <noscript><p class="noscript-note">JavaScript is required to add, search, filter, and update tasks.</p></noscript>
+</body>
+</html>
