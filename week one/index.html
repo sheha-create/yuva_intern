@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lamplight Study Hub – Free evening tutoring</title>
+  <meta name="description" content="Free evening study space and volunteer tutoring for school students, Monday to Saturday.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Lamplight Study Hub, home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        Lamplight
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#voices">Students</a></li>
+          <li><a class="btn btn-small" href="#join">Join a session</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">A quiet table, a lamp and someone to ask.</h1>
+          <p class="lead">Lamplight is a free evening study space where volunteer tutors help school students with maths, science and English, Monday to Saturday.</p>
+          <p class="hero-actions">
+            <a class="btn" href="#join">Reserve a seat</a>
+            <a class="btn btn-ghost" href="#schedule">See this week</a>
+          </p>
+        </div>
+
+        <aside class="week-card" aria-labelledby="week-title">
+          <h2 id="week-title">This week</h2>
+          <ul>
+            <li><strong>Mon, 6:00 pm</strong><span>Algebra clinic</span></li>
+            <li><strong>Wed, 6:30 pm</strong><span>Lab report help</span></li>
+            <li><strong>Sat, 10:00 am</strong><span>Reading circle</span></li>
+          </ul>
+          <p class="seats">12 seats left across the week</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="subjects" aria-labelledby="subjects-title">
+      <div class="container">
+        <h2 id="subjects-title">Help with the subjects that stall you</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Maths</h3>
+            <p>Work through problems at your own pace with a tutor who explains the step, not just the answer.</p>
+          </article>
+          <article class="card">
+            <h3>Science</h3>
+            <p>Get help with practicals, diagrams and lab reports before they are due.</p>
+          </article>
+          <article class="card">
+            <h3>English</h3>
+            <p>Read aloud, plan essays and build vocabulary in small groups of four.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="schedule" aria-labelledby="schedule-title">
+      <div class="container">
+        <h2 id="schedule-title">Weekly schedule</h2>
+        <div class="table-wrap" tabindex="0" role="region" aria-labelledby="schedule-title">
+          <table>
+            <caption class="visually-hidden">Sessions by day, time and subject</caption>
+            <thead>
+              <tr><th scope="col">Day</th><th scope="col">Time</th><th scope="col">Session</th><th scope="col">Grades</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>6:00–7:30 pm</td><td>Algebra clinic</td><td>8–10</td></tr>
+              <tr><th scope="row">Wednesday</th><td>6:30–8:00 pm</td><td>Lab report help</td><td>9–12</td></tr>
+              <tr><th scope="row">Friday</th><td>6:00–7:30 pm</td><td>Essay planning</td><td>8–12</td></tr>
+              <tr><th scope="row">Saturday</th><td>10:00–11:30 am</td><td>Reading circle</td><td>6–8</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voices" aria-labelledby="voices-title">
+      <div class="container narrow">
+        <h2 id="voices-title">What students say</h2>
+        <figure class="quote">
+          <blockquote>
+            <p>I used to skip the questions I didn’t understand. Now I write them down and bring them on Monday.</p>
+          </blockquote>
+          <figcaption>Meena, Grade 9</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="join" aria-labelledby="join-title">
+      <div class="container join-inner">
+        <div>
+          <h2 id="join-title">Reserve a seat</h2>
+          <p>Tell us who is coming and which session suits you. We will confirm by message within a day.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <label for="name">Student’s name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+
+          <label for="grade">Grade</label>
+          <select id="grade" name="grade" required>
+            <option value="">Choose a grade</option>
+            <option>6–8</option>
+            <option>9–10</option>
+            <option>11–12</option>
+          </select>
+
+          <label for="session">Session</label>
+          <select id="session" name="session" required>
+            <option value="">Choose a session</option>
+            <option>Algebra clinic (Mon)</option>
+            <option>Lab report help (Wed)</option>
+            <option>Essay planning (Fri)</option>
+            <option>Reading circle (Sat)</option>
+          </select>
+
+          <button class="btn btn-accent" type="submit">Request a seat</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-title">Lamplight Study Hub</p>
+        <p>Free tutoring, run by volunteers.</p>
+      </div>
+      <nav aria-label="Footer">
+        <p class="footer-title">Explore</p>
+        <ul>
+          <li><a href="#subjects">Subjects</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#join">Reserve a seat</a></li>
+        </ul>
+      </nav>
+      <address>
+        <p class="footer-title">Visit</p>
+        <p>12 Library Road<br>Open Mon–Sat, 6–8 pm</p>
+      </address>
+    </div>
+    <p class="container copyright">© 2026 Lamplight Study Hub. Sample page for a coursework exercise.</p>
+  </footer>
+</body>
+</html>

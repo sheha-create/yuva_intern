@@ -1,0 +1,207 @@
+/* ==========================================================
+   Lamplight Study Hub – styles.css
+   Contents: 1 Tokens · 2 Reset · 3 Base · 4 Layout
+             5 Header · 6 Hero · 7 Sections · 8 Table
+             9 Quote · 10 Form · 11 Footer · 12 Utilities
+             13 Breakpoints (mobile-first)
+   ========================================================== */
+
+/* 1. Tokens */
+:root {
+  --ink: #1b2a4a;
+  --lamp: #f4b942;
+  --lamp-dark: #c98a0b;
+  --sky: #e8eef8;
+  --paper: #ffffff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --line: #cfd8e6;
+
+  --font-head: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
+  --step-3: clamp(2.2rem, 1.4rem + 3.6vw, 3.8rem);
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 3rem;
+  --space-5: 4.5rem;
+
+  --radius: 10px;
+  --max: 68rem;
+}
+
+/* 2. Reset */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+img, svg { max-width: 100%; display: block; }
+ul { padding: 0; list-style: none; }
+input, select, button { font: inherit; }
+
+/* 3. Base */
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--paper);
+}
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  color: var(--ink);
+}
+h1 { font-size: var(--step-3); letter-spacing: -0.02em; }
+h2 { font-size: var(--step-2); margin-bottom: var(--space-3); }
+h3 { font-size: var(--step-1); margin-bottom: var(--space-1); }
+p { max-width: 62ch; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--lamp-dark); outline-offset: 3px; }
+
+/* 4. Layout */
+.container { width: min(100% - 2.5rem, var(--max)); margin-inline: auto; }
+.narrow { max-width: 44rem; }
+.section { padding-block: var(--space-4); }
+.section-tint { background: var(--sky); }
+.section-dark { background: var(--ink); color: #fff; }
+.section-dark h2 { color: #fff; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+.btn:hover { background: #121d36; }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+.btn-small { padding: 0.45rem 1rem; }
+.btn-accent { background: var(--lamp); border-color: var(--lamp); color: var(--ink); }
+.btn-accent:hover { background: #ffd070; }
+
+/* 5. Header */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--lamp); color: var(--ink); padding: 0.5rem 1rem; z-index: 20;
+}
+.skip-link:focus { left: 0; }
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: var(--space-1) var(--space-3);
+  padding-block: 0.75rem;
+}
+.logo {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-head); font-weight: 700; font-size: 1.35rem;
+  color: var(--ink); text-decoration: none;
+}
+.logo-mark {
+  width: 1.1rem; height: 1.5rem; background: var(--lamp);
+  border-radius: 50% 50% 4px 4px; box-shadow: 0 0 0 3px var(--sky);
+}
+.site-nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); }
+.site-nav a:not(.btn) { text-decoration: none; font-weight: 600; }
+.site-nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* 6. Hero */
+.hero { padding-block: var(--space-4); background: linear-gradient(180deg, var(--sky), var(--paper)); }
+.hero-inner { display: grid; gap: var(--space-4); align-items: center; }
+.lead { font-size: var(--step-1); margin-block: var(--space-2) var(--space-3); color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+.week-card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-top: 8px solid var(--lamp);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+.week-card h2 { font-size: var(--step-1); margin-bottom: var(--space-2); }
+.week-card li {
+  display: flex; justify-content: space-between; gap: var(--space-2);
+  padding-block: 0.7rem; border-bottom: 1px solid var(--line);
+}
+.week-card li span { color: var(--muted); text-align: right; }
+.seats { margin-top: var(--space-2); font-weight: 600; color: var(--lamp-dark); }
+
+/* 7. Content sections */
+.card-grid { display: grid; gap: var(--space-3); }
+.card {
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--lamp);
+  border-radius: var(--radius);
+}
+
+/* 8. Table */
+.table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; min-width: 30rem; }
+th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { background: var(--ink); color: #fff; }
+tbody tr:last-child > * { border-bottom: 0; }
+tbody th { color: var(--ink); }
+
+/* 9. Quote */
+.quote blockquote { font-family: var(--font-head); font-size: var(--step-2); line-height: 1.3; color: var(--ink); }
+.quote figcaption { margin-top: var(--space-2); color: var(--muted); font-weight: 600; }
+
+/* 10. Form */
+.join-inner { display: grid; gap: var(--space-3); }
+.form { display: grid; gap: 0.4rem; background: var(--paper); color: var(--text); padding: var(--space-3); border-radius: var(--radius); }
+.form label { font-weight: 600; color: var(--ink); margin-top: 0.6rem; }
+.form input, .form select {
+  width: 100%; padding: 0.7rem 0.8rem;
+  border: 2px solid var(--line); border-radius: 8px; background: #fff; color: var(--text);
+}
+.form .btn { margin-top: var(--space-2); }
+
+/* 11. Footer */
+.site-footer { background: #121d36; color: #d6deec; padding-block: var(--space-4) var(--space-2); }
+.footer-grid { display: grid; gap: var(--space-3); }
+.footer-title { font-family: var(--font-head); color: #fff; font-weight: 700; margin-bottom: 0.4rem; }
+.site-footer address { font-style: normal; }
+.site-footer a { text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.copyright { margin-top: var(--space-3); padding-top: var(--space-2); border-top: 1px solid #2c3b5e; font-size: 0.9rem; max-width: none; }
+
+/* 12. Utilities */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* 13. Breakpoints */
+@media (min-width: 40em) {            /* ≥ 640px: tablets */
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+  .section { padding-block: var(--space-5); }
+}
+@media (min-width: 60em) {            /* ≥ 960px: desktops */
+  .hero-inner { grid-template-columns: 1.3fr 1fr; gap: var(--space-5); }
+  .join-inner { grid-template-columns: 1fr 1fr; align-items: start; gap: var(--space-5); }
+  .hero { padding-block: var(--space-5); }
+}
+@media (max-width: 30em) {            /* ≤ 480px: small phones */
+  .week-card li { flex-direction: column; gap: 0; }
+  .week-card li span { text-align: left; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
