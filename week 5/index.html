@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="TaskFlow single-page application demo">
+<meta name="theme-color" content="#f5f6fc"><title>TaskFlow | SPA Demo</title>
+<link rel="stylesheet" href="css/styles.css"><script src="js/app.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<div class="shell"><aside class="sidebar"><a class="brand" href="#/dashboard" data-route="dashboard"><span class="logo">✓</span> TaskFlow</a>
+<p class="nav-label">WORKSPACE</p><nav aria-label="Primary navigation">
+<a href="#/dashboard" data-route="dashboard">▦ <span>Dashboard</span></a>
+<a href="#/tasks" data-route="tasks">☷ <span>My tasks</span><b id="nav-count">2</b></a>
+<a href="#/insights" data-route="insights">◔ <span>Insights</span></a>
+<a href="#/about" data-route="about">ⓘ <span>About</span></a></nav>
+<div class="profile"><span class="avatar" aria-hidden="true">S</span><span><b>Student workspace</b><small>Personal plan</small></span><button id="theme" class="icon-btn" aria-label="Switch to dark theme">◐</button></div></aside>
+<div class="main-column"><header class="topbar"><div><p id="breadcrumb">Workspace / Dashboard</p><h1 id="page-title">Good evening. Let’s make progress.</h1></div><button class="primary" data-open-dialog>＋ New task</button></header>
+<main id="main" tabindex="-1"><div id="view" aria-live="polite" aria-busy="false"></div></main>
+<footer><span>TaskFlow SPA</span><span>Client-side routing · No full-page reloads</span></footer></div></div>
+<dialog id="task-dialog"><form id="task-form"><div class="dialog-head"><div><small>QUICK CAPTURE</small><h2>Add a task</h2></div><button type="button" id="close-dialog" class="icon-btn" aria-label="Close dialog">×</button></div>
+<label for="task-title">Task name</label><input id="task-title" maxlength="120" required placeholder="e.g. Finish assignment draft">
+<p id="task-error" class="error" role="alert" hidden></p><label for="priority">Priority</label><select id="priority"><option>low</option><option selected>medium</option><option>high</option></select>
+<div class="dialog-actions"><button type="button" class="secondary" id="cancel-dialog">Cancel</button><button class="primary" type="submit">Add task</button></div></form></dialog>
+<noscript><p class="error">JavaScript is required for this SPA demo.</p></noscript></body></html>
